@@ -17,9 +17,7 @@ class MainActivity : AppCompatActivity() {
         val tvViewNameIOS = findViewById<TextView>(R.id.tvViewNameIOS)
         val tvViewScoreAndroid = findViewById<TextView>(R.id.tvViewScoreAndroid)
         val tvViewScoreIOS = findViewById<TextView>(R.id.tvViewScoreIOS)
-        var btnStartReset = findViewById<Button>(R.id.btnStartReset)
-
-
+        val btnStartReset = findViewById<Button>(R.id.btnStartReset)
 
         // DATA GETEXTRA
 
@@ -41,23 +39,13 @@ class MainActivity : AppCompatActivity() {
             {val intent: Intent = Intent (this ,DataInput::class.java)
             startActivity(intent) }
             else
-            {
-                tvViewNameAndroid.setText( "")
+            {   tvViewNameAndroid.setText( "")
                 tvViewNameIOS.setText("")
                 tvViewScoreAndroid.setText("")
                 tvViewScoreIOS.setText("")
-                btnStartReset.setText("START")
-
-            }
-
+                btnStartReset.setText("START") }
 
         }
-
-
-
-        // FineViewByid
-
-
 
     }
 }

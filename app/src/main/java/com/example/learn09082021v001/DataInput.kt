@@ -14,9 +14,6 @@ class DataInput : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_input)
         val ScoreOOP :NameScoreOOP = NameScoreOOP ()
-        val a: Int =1
-
-
         // FIND VIEW BY ID
         val edtNameAndroid = findViewById<EditText>(R.id.edtNameAndroid)
         val edtNameIOS = findViewById<EditText>(R.id.edtNameIOS)
@@ -60,11 +57,7 @@ class DataInput : AppCompatActivity() {
                 ScoreOOP.ScoreInPutIOS = ScoreOOP.ScoreInPutIOS - 1
                 tvScoreIOS.setText(ScoreOOP.ScoreInPutIOS.toString())
             }
-            else Toast.makeText(this, "DATA CHANGE FAIL", Toast.LENGTH_SHORT).show()
-
-        }
-
-
+            else Toast.makeText(this, "DATA CHANGE FAIL", Toast.LENGTH_SHORT).show() }
 
         btnDone.setOnClickListener {
 
