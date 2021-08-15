@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
                 tvViewScoreAndroid.setText("")
                 tvViewScoreIOS.setText("")
                 btnStartReset.setText("START") }
+            ///
 
         }
 
