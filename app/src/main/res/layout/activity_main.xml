@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
+
     <TextView
-        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Title : Student"
+        android:layout_marginTop="40dp"
+        android:text="@string/title_student"
         android:textAlignment="center"
-        android:textSize="20dp"
         android:textColor="#FF0000"
-        />
+        android:textSize="20sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Name : Student"
+        android:text="@string/name_student"
         android:textAlignment="center"
-        android:textSize="20dp"
         android:textColor="#0000FF"
-        />
+        android:textSize="20sp" />
+
     <TextView
-        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Android : Student"
+        android:layout_marginTop="40dp"
+        android:text="@string/android_student"
         android:textAlignment="center"
-        android:textSize="20dp"
-        />
+        android:textSize="20sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
-            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name : "
-            android:layout_marginLeft="60dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/name"
             android:textAlignment="center"
-            android:textSize="20dp"/>
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tvViewNameAndroid"
@@ -53,92 +53,98 @@
             android:hint=".................."
             android:textAlignment="center"
             android:textColor="#0000FF"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
-            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Score : "
-            android:layout_marginLeft="60dp"
-            android:textAlignment="center"
-            android:textSize="20dp"/>
-        <TextView
+            android:layout_marginStart="60dp"
             android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint=".................."
+            android:text="@string/score"
             android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <TextView
             android:id="@+id/tvViewScoreAndroid"
-            android:textSize="20dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint=".................."
+            android:textAlignment="center"
+            android:textSize="20sp" />
     </LinearLayout>
-    /// dgydgys
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="IOS : Student"
+        android:text="@string/ios_student"
         android:textAlignment="center"
-        android:textSize="20dp"
-        />
+        android:textSize="20sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
-            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name : "
-            android:layout_marginLeft="60dp"
-            android:textAlignment="center"
-            android:textSize="20dp"/>
-        <TextView
+            android:layout_marginStart="60dp"
             android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint=".................."
+            android:text="@string/name"
             android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <TextView
             android:id="@+id/tvViewNameIOS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint=".................."
+            android:textAlignment="center"
             android:textColor="#0000FF"
-            android:textSize="20dp"/>
+            android:textSize="20sp" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
-            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Score : "
-            android:layout_marginLeft="60dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/score"
             android:textAlignment="center"
-            android:textSize="20dp"/>
+            android:textSize="20dp" />
+
         <TextView
-            android:layout_marginTop="10dp"
+            android:id="@+id/tvViewScoreIOS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:hint=".................."
             android:textAlignment="center"
-            android:id="@+id/tvViewScoreIOS"
-            android:textSize="20dp"/>
+            android:textSize="20sp" />
     </LinearLayout>
 
     <Button
-        android:layout_marginTop="80dp"
+        android:id="@+id/btnStartReset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textAlignment="center"
         android:layout_gravity="center"
-        android:id="@+id/btnStartReset"
-        android:text="START"/>
-
+        android:layout_marginTop="80dp"
+        android:text="@string/start"
+        android:textAlignment="center"
+        android:textSize="20sp" />
 
 
 </LinearLayout>

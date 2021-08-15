@@ -18,32 +18,32 @@ class MainActivity : AppCompatActivity() {
         val tvViewScoreAndroid = findViewById<TextView>(R.id.tvViewScoreAndroid)
         val tvViewScoreIOS = findViewById<TextView>(R.id.tvViewScoreIOS)
         val btnStartReset = findViewById<Button>(R.id.btnStartReset)
-
+        val nameScoreOOP: NameScoreOOP = NameScoreOOP()
         // DATA GETEXTRA
 
         val intent = getIntent();
-       tvViewNameAndroid.setText( intent.getStringExtra("AndroidName")  )
+        tvViewNameAndroid.setText(intent.getStringExtra("AndroidName"))
         tvViewNameIOS.setText(intent.getStringExtra("IOSName"))
         tvViewScoreAndroid.setText(intent.getStringExtra("AndroidScore"))
         tvViewScoreIOS.setText(intent.getStringExtra("IOSScore"))
 
-        if (tvViewNameAndroid.text.isNotEmpty() && tvViewNameIOS.text.isNotEmpty() )
-        {
+        if (tvViewNameAndroid.text.isNotEmpty() && tvViewNameIOS.text.isNotEmpty()) {
             btnStartReset.setText("RESET")
-        }
-        else {
+        } else {
             btnStartReset.setText("START")
-            }
+        }
         btnStartReset.setOnClickListener {
-            if (tvViewNameAndroid.text.isEmpty() && tvViewNameIOS.text.isEmpty())
-            {val intent: Intent = Intent (this ,DataInput::class.java)
-            startActivity(intent) }
-            else
-            {   tvViewNameAndroid.setText( "")
+            if (tvViewNameAndroid.text.isEmpty() && tvViewNameIOS.text.isEmpty()) {
+                val intent: Intent = Intent(this, DataInput::class.java)
+                startActivity(intent)
+            } else {
+                tvViewNameAndroid.setText("")
                 tvViewNameIOS.setText("")
                 tvViewScoreAndroid.setText("")
                 tvViewScoreIOS.setText("")
-                btnStartReset.setText("START") }
+                btnStartReset.setText("START")
+            }
+            ///
 
         }
 

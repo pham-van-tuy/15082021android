@@ -4,6 +4,6 @@ class NameScoreOOP {
     public var NameInPutandroid = ""
     public var NameInputIOS = ""
     public var ScoreInPutandroid: Int = 0
-    public var ScoreInPutIOS:Int = 0
+    public var ScoreInPutIOS: Int = 0
 
 }
