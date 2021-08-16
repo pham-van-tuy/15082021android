@@ -4,26 +4,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_data_input.*
+
 
 class DataInput : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_input)
         val ScoreOOP = NameScoreOOP()
-        // FIND VIEW BY ID
-        val edtNameAndroid = findViewById<EditText>(R.id.edtNameAndroid)
-        val edtNameIOS = findViewById<EditText>(R.id.edtNameIOS)
-        val tvScoreAndroid = findViewById<TextView>(R.id.tvScoreAndroid)
-        val tvScoreIOS = findViewById<TextView>(R.id.tvScoreIOS)
-        val btnINCAndroid = findViewById<Button>(R.id.btnINCAndroid)
-        val btnDECAndroid = findViewById<Button>(R.id.btnDECAndroid)
-        val btnINCIOS = findViewById<Button>(R.id.btnINCIOS)
-        val btnDECIOS = findViewById<Button>(R.id.btnDECIOS)
-        val btnDone = findViewById<Button>(R.id.btnDone)
         // BTN SET ONCLICK LISTENNER
         btnINCAndroid.setOnClickListener {
             if (edtNameAndroid.text.isNotEmpty() && ScoreOOP.ScoreInPutandroid <= 8) {

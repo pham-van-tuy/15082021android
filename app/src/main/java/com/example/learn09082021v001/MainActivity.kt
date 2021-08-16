@@ -3,21 +3,11 @@ package com.example.learn09082021v001
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
-
+import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        // FINEVIEW BY ID
-        val tvViewNameAndroid = findViewById<TextView>(R.id.tvViewNameAndroid)
-        val tvViewNameIOS = findViewById<TextView>(R.id.tvViewNameIOS)
-        val tvViewScoreAndroid = findViewById<TextView>(R.id.tvViewScoreAndroid)
-        val tvViewScoreIOS = findViewById<TextView>(R.id.tvViewScoreIOS)
-        val btnStartReset = findViewById<Button>(R.id.btnStartReset)
         val nameScoreOOP: NameScoreOOP = NameScoreOOP()
         // DATA GETEXTRA
 
@@ -43,8 +33,6 @@ class MainActivity : AppCompatActivity() {
                 tvViewScoreIOS.setText("")
                 btnStartReset.setText("START")
             }
-            ///
-
         }
 
     }
