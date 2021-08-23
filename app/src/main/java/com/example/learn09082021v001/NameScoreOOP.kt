@@ -3,11 +3,10 @@ package com.example.learn09082021v001
 import android.os.Bundle
 
 
-class NameScoreOOP (){
-    var NameInputandroid: String = ""
-    var ScoreInPutandroid: Int = 0
-    var NameInPutIOS: String = ""
-    var ScoreInPutIOS: Int = 0
+class NameScoreOOP (
+    var NameInputandroid: String, var ScoreInPutandroid: Int,
+    var NameInPutIOS: String, var ScoreInPutIOS: Int
+) {
     fun androiScoreINC() {
         if (ScoreInPutandroid <= 8) ScoreInPutandroid = ScoreInPutandroid + 1
     }

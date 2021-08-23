@@ -27,7 +27,7 @@ class DataInput : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_input)
-        val scoreOOP = NameScoreOOP()
+        val scoreOOP = NameScoreOOP(NameInputandroid = "",ScoreInPutandroid = 0,NameInPutIOS = "",ScoreInPutIOS = 0)
         // BTN SET ONCLICK LISTENNER
         btnINCAndroid.setOnClickListener {
             scoreOOP.androiScoreINC()
@@ -59,4 +59,5 @@ class DataInput : AppCompatActivity() {
 
         }
     }
+
 
