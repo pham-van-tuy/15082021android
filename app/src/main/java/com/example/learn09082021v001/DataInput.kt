@@ -1,5 +1,6 @@
 package com.example.learn09082021v001
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -53,7 +54,8 @@ class DataInput : AppCompatActivity() {
                 intent.putExtra("IOSName", edtNameIOS.text.toString())
                 intent.putExtra("AndroidScore", tvScoreAndroid.text.toString())
                 intent.putExtra("IOSScore", tvScoreIOS.text.toString())
-                startActivity(intent)
+                setResult(Activity.RESULT_OK,intent)
+                finish();
                 Log.d("AAA", "BTN DONE ON")
             }
 
