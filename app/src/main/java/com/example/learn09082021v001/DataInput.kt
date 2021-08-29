@@ -1,56 +1,77 @@
 package com.example.learn09082021v001
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
-import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import kotlinx.android.synthetic.main.activity_data_input.*
 
 
 class DataInput : AppCompatActivity() {
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        super.onSaveInstanceState(savedInstanceState)
+        savedInstanceState.putString(nameAndroid, edtNameAndroid.text.toString())
+        savedInstanceState.putString(scoreAndroid, tvScoreAndroid.text.toString())
+        savedInstanceState.putString(nameIos, edtNameIOS.text.toString())
+        savedInstanceState.putString(scoreIos, tvScoreIOS.text.toString())
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        tvScoreAndroid.text = savedInstanceState.getString(scoreAndroid)
+        tvScoreIOS.text = savedInstanceState.getString(scoreIos)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_input)
-        val ScoreOOP = NameScoreOOP()
+       var scoreOOP = NameScoreOOP(
+            NameInputandroid = "",
+            ScoreInPutandroid = 0,
+            NameInPutIOS = "",
+            ScoreInPutIOS = 0
+        )
         // BTN SET ONCLICK LISTENNER
         btnINCAndroid.setOnClickListener {
-            if (edtNameAndroid.text.isNotEmpty() && ScoreOOP.ScoreInPutandroid <= 8) {
-                ScoreOOP.ScoreInPutandroid = ScoreOOP.ScoreInPutandroid + 1
-                tvScoreAndroid.text = ScoreOOP.ScoreInPutandroid.toString()
-            } else Toast.makeText(this, "DATA CHANGE FAIL", Toast.LENGTH_SHORT).show()
+            scoreOOP.androiScoreINC()
+            tvScoreAndroid.text = scoreOOP.ScoreInPutandroid.toString()
         }
         btnDECAndroid.setOnClickListener {
-            if (edtNameAndroid.text.isNotEmpty() && ScoreOOP.ScoreInPutandroid >= 1) {
-                ScoreOOP.ScoreInPutandroid = ScoreOOP.ScoreInPutandroid - 1
-                ScoreOOP.ScoreInPutandroid.toString().also { tvScoreAndroid.text = it }
-            } else Toast.makeText(this, "DATA CHANGE FAIL", Toast.LENGTH_SHORT).show()
-
+            scoreOOP.androiScoreDEC()
+            tvScoreAndroid.text = scoreOOP.ScoreInPutandroid.toString()
         }
         btnINCIOS.setOnClickListener {
-            if (edtNameIOS.text.isNotEmpty() && ScoreOOP.ScoreInPutIOS <= 8) {
-                ScoreOOP.ScoreInPutIOS = ScoreOOP.ScoreInPutIOS + 1
-                tvScoreIOS.text = ScoreOOP.ScoreInPutIOS.toString()
-            } else Toast.makeText(this, "DATA CHANGE FAIL", Toast.LENGTH_SHORT).show()
-
+            scoreOOP.IOSScoreINC()
+            tvScoreIOS.text = scoreOOP.ScoreInPutIOS.toString()
         }
         btnDECIOS.setOnClickListener {
-            if (edtNameIOS.text.isNotEmpty() && ScoreOOP.ScoreInPutIOS >= 1) {
-                ScoreOOP.ScoreInPutIOS = ScoreOOP.ScoreInPutIOS - 1
-                tvScoreIOS.text = ScoreOOP.ScoreInPutIOS.toString()
-
-            } else Toast.makeText(this, "DATA CHANGE FAIL", Toast.LENGTH_SHORT).show()
+            scoreOOP.IOSScoreDEC()
+            tvScoreIOS.text = scoreOOP.ScoreInPutIOS.toString()
         }
-        btnDone.setOnClickListener {
 
+        btnDone.setOnClickListener {
+            scoreOOP.NameInputandroid = edtNameAndroid.text.toString()
+            scoreOOP.NameInPutIOS = edtNameAndroid.text.toString()
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("AndroidName", edtNameAndroid.text.toString())
-            intent.putExtra("IOSName", edtNameIOS.text.toString())
-            intent.putExtra("AndroidScore", tvScoreAndroid.text.toString())
-            intent.putExtra("IOSScore", tvScoreIOS.text.toString())
-            startActivity(intent)
+            intent.putExtra(nameAndroid, edtNameAndroid.text.toString())
+            intent.putExtra(scoreAndroid, tvScoreAndroid.text.toString())
+            intent.putExtra(nameIos, edtNameIOS.text.toString())
+            intent.putExtra(scoreIos, tvScoreIOS.text.toString())
+       //     intent.putExtra("dataInputPutsring",scoreOOP)
+         //   var a = datasaveandload ()
+          //  intent.putExtra("dataInputPutsring",scoreOOP)
+            setResult(Activity.RESULT_OK, intent)
+            finish();
             Log.d("AAA", "BTN DONE ON")
         }
-    }
 
+    }
 }
+
+
+
+
