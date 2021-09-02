@@ -9,32 +9,26 @@ import android.util.Log
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import kotlinx.android.synthetic.main.activity_data_input.*
+import kotlinx.android.synthetic.main.activity_main.*
+import java.io.Serializable;
 
 
 class DataInput : AppCompatActivity() {
     override fun onSaveInstanceState(savedInstanceState: Bundle) {
         super.onSaveInstanceState(savedInstanceState)
-        savedInstanceState.putString(nameAndroid, edtNameAndroid.text.toString())
-        savedInstanceState.putString(scoreAndroid, tvScoreAndroid.text.toString())
-        savedInstanceState.putString(nameIos, edtNameIOS.text.toString())
-        savedInstanceState.putString(scoreIos, tvScoreIOS.text.toString())
+        savedInstanceState.putSerializable(sendData, scoreOOP)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        tvScoreAndroid.text = savedInstanceState.getString(scoreAndroid)
-        tvScoreIOS.text = savedInstanceState.getString(scoreIos)
+        scoreOOP = savedInstanceState.getSerializable(sendData) as NameScoreOOP
+        getdataclassOOP()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_input)
-       var scoreOOP = NameScoreOOP(
-            NameInputandroid = "",
-            ScoreInPutandroid = 0,
-            NameInPutIOS = "",
-            ScoreInPutIOS = 0
-        )
+       var scoreOOP = NameScoreOOP( )
         // BTN SET ONCLICK LISTENNER
         btnINCAndroid.setOnClickListener {
             scoreOOP.androiScoreINC()
@@ -55,20 +49,17 @@ class DataInput : AppCompatActivity() {
 
         btnDone.setOnClickListener {
             scoreOOP.NameInputandroid = edtNameAndroid.text.toString()
-            scoreOOP.NameInPutIOS = edtNameAndroid.text.toString()
+            scoreOOP.NameInPutIOS = edtNameIOS.text.toString()
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra(nameAndroid, edtNameAndroid.text.toString())
-            intent.putExtra(scoreAndroid, tvScoreAndroid.text.toString())
-            intent.putExtra(nameIos, edtNameIOS.text.toString())
-            intent.putExtra(scoreIos, tvScoreIOS.text.toString())
-       //     intent.putExtra("dataInputPutsring",scoreOOP)
-         //   var a = datasaveandload ()
-          //  intent.putExtra("dataInputPutsring",scoreOOP)
-            setResult(Activity.RESULT_OK, intent)
+          intent.putExtra(sendData,scoreOOP )
+            setResult(RESULT_OK, intent)
             finish();
-            Log.d("AAA", "BTN DONE ON")
         }
 
+    }
+    fun getdataclassOOP () {
+        tvScoreAndroid.text = scoreOOP. ScoreInPutandroid.toString()
+        tvScoreIOS.text = scoreOOP.ScoreInPutIOS.toString()
     }
 }
 

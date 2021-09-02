@@ -9,39 +9,30 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import kotlinx.android.synthetic.main.activity_data_input.*
 import kotlinx.android.synthetic.main.activity_main.*
-public var nameAndroid = "nameAndroidView"
-public var scoreAndroid = "scoreAndroidView"
-public var nameIos = "nameIosView"
-public var scoreIos = "scoreIosView"
+import java.io.Serializable;
+
+public val sendData = "datatranfer"
+public var scoreOOP = NameScoreOOP()
 
 class MainActivity : AppCompatActivity() {
-    override fun onSaveInstanceState(savedInstanceState: Bundle) {super.onSaveInstanceState(savedInstanceState)
-        savedInstanceState.putString(nameAndroid, tvViewNameAndroid.text.toString())
-        savedInstanceState.putString(scoreAndroid, tvViewScoreAndroid.text.toString())
-        savedInstanceState.putString(nameIos, tvViewNameIOS.text.toString())
-        savedInstanceState.putString(scoreIos, tvViewScoreIOS.text.toString())
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        super.onSaveInstanceState(savedInstanceState)
+        savedInstanceState.putSerializable(sendData, scoreOOP)
         checkDataFull()
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        tvViewNameAndroid.text = savedInstanceState.getString(nameAndroid)
-        tvViewScoreAndroid.text = savedInstanceState.getString(scoreAndroid)
-        tvViewNameIOS.text = savedInstanceState.getString(nameIos)
-        tvViewScoreIOS.text = savedInstanceState.getString(scoreIos)
+        scoreOOP = savedInstanceState.getSerializable(sendData) as NameScoreOOP
+        getdataclassOOP()
         checkDataFull()
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (data != null && resultCode == RESULT_OK) {
-            tvViewNameAndroid.setText(data.getStringExtra(nameAndroid))
-            tvViewScoreAndroid.setText(data.getStringExtra(scoreAndroid))
-            tvViewNameIOS.setText(data.getStringExtra(nameIos))
-            tvViewScoreIOS.setText(data.getStringExtra(scoreIos))
-  //        data.getStringExtra("datasendscreen")
-        //    data.ge
+            scoreOOP = data.getSerializableExtra(sendData) as NameScoreOOP
+            getdataclassOOP()
             checkDataFull()
         }
     }
@@ -49,24 +40,38 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var scoreOOP = NameScoreOOP(NameInputandroid = "", ScoreInPutandroid = 0,
-           NameInPutIOS = "", ScoreInPutIOS = 0)
         btnStartReset.setOnClickListener {
             if (tvViewNameAndroid.text.isEmpty() && tvViewNameIOS.text.isEmpty() &&
-                    tvViewScoreAndroid.text.isEmpty()  && tvViewScoreIOS.text.isEmpty()) {
+                tvViewScoreAndroid.text.isEmpty() && tvViewScoreIOS.text.isEmpty()
+            ) {
                 val intent: Intent = Intent(this, DataInput::class.java)
                 startActivityForResult(intent, 1)
-            } else { clearData() }
+            } else {
+                clearData()
+            }
         }
     }
-    fun checkDataFull () {
+
+    fun checkDataFull() {
         if (tvViewNameAndroid.text.isNotEmpty() || tvViewNameIOS.text.isNotEmpty()
-            || tvViewScoreAndroid.text.isNotEmpty() || tvViewScoreIOS.text.isNotEmpty()) {
-            btnStartReset.setText("RESET") } else btnStartReset.setText("START") }
-    fun clearData (){
+            || tvViewScoreAndroid.text.isNotEmpty() || tvViewScoreIOS.text.isNotEmpty()
+        ) {
+            btnStartReset.setText("RESET")
+        } else btnStartReset.setText("START")
+    }
+
+    fun clearData() {
         tvViewNameAndroid.setText("")
         tvViewNameIOS.setText("")
         tvViewScoreAndroid.setText("")
         tvViewScoreIOS.setText("")
-        btnStartReset.setText("START") }
+        btnStartReset.setText("START")
+    }
+
+    fun getdataclassOOP() {
+        tvViewNameAndroid.text = scoreOOP.NameInputandroid
+        tvViewScoreAndroid.text = scoreOOP.ScoreInPutandroid.toString()
+        tvViewNameIOS.text = scoreOOP.NameInPutIOS
+        tvViewScoreIOS.text = scoreOOP.ScoreInPutIOS.toString()
+    }
 }
