@@ -1,38 +1,35 @@
 package com.example.learn09082021v001
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
-import kotlinx.android.synthetic.main.activity_data_input.*
 import kotlinx.android.synthetic.main.activity_main.*
-import java.io.Serializable;
+import android.R.string
 
-public val sendData = "datatranfer"
-public var scoreOOP = NameScoreOOP()
+
+const val DATA_TRANFER = "datatranfer"
+
 
 class MainActivity : AppCompatActivity() {
+    var scoreOOP = NameScoreOOP()
     override fun onSaveInstanceState(savedInstanceState: Bundle) {
         super.onSaveInstanceState(savedInstanceState)
-        savedInstanceState.putSerializable(sendData, scoreOOP)
+        savedInstanceState.putSerializable(DATA_TRANFER, scoreOOP)
         checkDataFull()
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        scoreOOP = savedInstanceState.getSerializable(sendData) as NameScoreOOP
-        getdataclassOOP()
+        scoreOOP = savedInstanceState.getSerializable(DATA_TRANFER) as NameScoreOOP
+        upDateDataMain()
         checkDataFull()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (data != null && resultCode == RESULT_OK) {
-            scoreOOP = data.getSerializableExtra(sendData) as NameScoreOOP
-            getdataclassOOP()
+            scoreOOP = data.getSerializableExtra(DATA_TRANFER) as NameScoreOOP
+            upDateDataMain()
             checkDataFull()
         }
     }
@@ -44,15 +41,16 @@ class MainActivity : AppCompatActivity() {
             if (tvViewNameAndroid.text.isEmpty() && tvViewNameIOS.text.isEmpty() &&
                 tvViewScoreAndroid.text.isEmpty() && tvViewScoreIOS.text.isEmpty()
             ) {
-                val intent: Intent = Intent(this, DataInput::class.java)
+                val intent = Intent(this, DataInput::class.java)
                 startActivityForResult(intent, 1)
             } else {
                 clearData()
             }
         }
     }
+    // Funtion
 
-    fun checkDataFull() {
+    private fun checkDataFull() {
         if (tvViewNameAndroid.text.isNotEmpty() || tvViewNameIOS.text.isNotEmpty()
             || tvViewScoreAndroid.text.isNotEmpty() || tvViewScoreIOS.text.isNotEmpty()
         ) {
@@ -60,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         } else btnStartReset.setText("START")
     }
 
-    fun clearData() {
+    private fun clearData() {
         tvViewNameAndroid.setText("")
         tvViewNameIOS.setText("")
         tvViewScoreAndroid.setText("")
@@ -68,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         btnStartReset.setText("START")
     }
 
-    fun getdataclassOOP() {
+    private fun upDateDataMain() {
         tvViewNameAndroid.text = scoreOOP.NameInputandroid
         tvViewScoreAndroid.text = scoreOOP.ScoreInPutandroid.toString()
         tvViewNameIOS.text = scoreOOP.NameInPutIOS
