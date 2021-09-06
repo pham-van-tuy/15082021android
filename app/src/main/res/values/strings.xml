@@ -13,4 +13,8 @@
     <string name="increase">INCREASE</string>
     <string name="decrease">DECREASE</string>
     <string name="done">DONE</string>
+    <string name="fan_off" />
+    <string name="fan_low" />
+    <string name="fan_medium" />
+    <string name="fan_high" />
 </resources>
