@@ -1,5 +1,6 @@
 package com.example.learn09082021v001
 import java.io.Serializable;
+
 class NameScoreOOP : Serializable {
     var NameInputandroid: String = ""
     var ScoreInPutandroid: Int = 0
