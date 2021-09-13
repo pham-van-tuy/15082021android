@@ -31,13 +31,13 @@
             android:textColor="#0000FF"
             android:textSize="20sp" />
 
-        <com.example.learn09082021v001.CustomView_group
+        <com.example.learn09082021v001.studenViewCustom
             android:id="@+id/viewDataInputAndroid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:textClass="Android Student" />
 
-        <com.example.learn09082021v001.CustomView_group
+        <com.example.learn09082021v001.studenViewCustom
             android:id="@+id/viewDataInputIos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

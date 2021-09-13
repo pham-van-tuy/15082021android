@@ -30,7 +30,7 @@
             android:textColor="#0000FF"
             android:textSize="20sp" />
 
-        <com.example.learn09082021v001.CustomView_group
+        <com.example.learn09082021v001.studenViewCustom
             android:id="@+id/viewMainAndroid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
 
             />
 
-        <com.example.learn09082021v001.CustomView_group
+        <com.example.learn09082021v001.studenViewCustom
             android:id="@+id/viewMainIos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -3,7 +3,6 @@ package com.example.learn09082021v001
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_sub_bottom.view.*
 
@@ -41,19 +40,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         // view config
-        viewMainAndroid.edtName.isEnabled = false
-        viewMainIos.edtName.isEnabled = false
-        viewMainAndroid.btnDEC.visibility = View.GONE
-        viewMainAndroid.btnINC.visibility = View.GONE
-        viewMainIos.btnDEC.visibility = View.GONE
-        viewMainIos.btnINC.visibility = View.GONE
+        viewMainAndroid.goneButtonAction()
+        viewMainIos.goneButtonAction()
         btnStartReset.setOnClickListener {
-            if (viewMainAndroid.edtName.text.isEmpty() && viewMainAndroid.tvScore.text.isEmpty() &&
-                viewMainIos.edtName.text.isEmpty() && viewMainIos.tvScore.text.isEmpty()
-            ) {
+            if (viewMainAndroid.dataEmpty() && viewMainIos.dataEmpty()) {
                 val intent = Intent(this, DataInput::class.java)
                 startActivityForResult(intent, 1)
             } else clearData()
+            checkDataFull()
         }
     }
 
@@ -66,21 +60,14 @@ class MainActivity : AppCompatActivity() {
 // Funtion
 
     private fun checkDataFull() {
-        if (viewMainAndroid.edtName.text.isNotEmpty() || viewMainIos.edtName.text.isNotEmpty()
-            || viewMainAndroid.tvScore.text.isNotEmpty() || viewMainIos.tvScore.text.isNotEmpty()
-        ) {
+        if (viewMainAndroid.dataNotEmpty() || viewMainIos.dataNotEmpty()) {
             btnStartReset.setText("RESET")
         } else btnStartReset.setText("START")
     }
 
     private fun clearData() {
-        viewMainAndroid.edtName.setText("")
-        viewMainAndroid.tvScore.setText("")
-        viewMainIos.edtName.setText("")
-        viewMainIos.tvScore.setText("")
-        btnStartReset.setText("START")
+        viewMainAndroid.clear()
+        viewMainIos.clear()
     }
-
-
 }
 
