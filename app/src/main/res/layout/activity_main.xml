@@ -1,160 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:nestedScrollingEnabled="false"
+    android:orientation="vertical"
     tools:context=".MainActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/title_student"
-        android:textAlignment="center"
-        android:textColor="#FF0000"
-        android:textSize="20sp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/name_student"
-        android:textAlignment="center"
-        android:textColor="#0000FF"
-        android:textSize="20sp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/android_student"
-        android:textAlignment="center"
-        android:textSize="20sp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/name"
+            android:layout_marginTop="40dp"
+            android:text="@string/title_student"
             android:textAlignment="center"
+            android:textColor="#FF0000"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/tvViewNameAndroid"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:hint=".................."
+            android:text="@string/name_student"
             android:textAlignment="center"
             android:textColor="#0000FF"
             android:textSize="20sp" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        <com.example.learn09082021v001.studenViewCustom
+            android:id="@+id/viewMainAndroid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:textClass="Android Student"
 
-        <TextView
+            />
+
+        <com.example.learn09082021v001.studenViewCustom
+            android:id="@+id/viewMainIos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:textClass="IOS Student"
+
+            />
+
+        <Button
+            android:id="@+id/btnStartReset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/score"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/tvViewScoreAndroid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint=".................."
-            android:textAlignment="center"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/ios_student"
-        android:textAlignment="center"
-        android:textSize="20sp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/name"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/tvViewNameIOS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:hint=".................."
-            android:textAlignment="center"
-            android:textColor="#0000FF"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/score"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/tvViewScoreIOS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint=".................."
+            android:layout_gravity="center"
+            android:layout_marginTop="80dp"
+            android:text="@string/start"
             android:textAlignment="center"
             android:textSize="20sp" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnStartReset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="80dp"
-        android:text="@string/start"
-        android:textAlignment="center"
-        android:textSize="20sp" />
-</LinearLayout>
 
 
 </ScrollView>
