@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.view_sub_bottom.view.*
 
-
 class studenViewCustom(context: Context, attrs: AttributeSet) :
     LinearLayout(context, attrs) {
     // set fomat layout custom view
