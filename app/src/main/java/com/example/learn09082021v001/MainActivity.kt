@@ -11,9 +11,9 @@ const val DATA_TRANFER = "datatranfer"
 
 class MainActivity : AppCompatActivity() {
     var scoreOOP = NameScoreOOP()
-    val imgstudentlist = arrayListOf<Int>()
-    val namestudentlist = arrayListOf<String>()
-    val scorestudentlist = arrayListOf<String>()
+    private val imgstudentlist = arrayListOf<Int>()
+    private val namestudentlist = arrayListOf<String>()
+    private val scorestudentlist = arrayListOf<String>()
 
 
     override fun onSaveInstanceState(savedInstanceState: Bundle) {
@@ -60,8 +60,6 @@ class MainActivity : AppCompatActivity() {
             namestudentlist.removeAt(i)
             scorestudentlist.removeAt(i)
             updateDataListView()
-
-
         }
     }
 
@@ -94,11 +92,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateDataListView() {
-        val listView = lvUpDateData(
-            context = this, imgstudent = imgstudentlist, namestudent = namestudentlist,
-            scorestudent = scorestudentlist
+        val listView = AdapterUpdateLV(
+            context = this, imgStudentArrayList = imgstudentlist, nameStudentArrayString = namestudentlist,
+            scoreStudentArrayString = scorestudentlist
         )
         lvdata.adapter = listView
     }
+
 }
 
