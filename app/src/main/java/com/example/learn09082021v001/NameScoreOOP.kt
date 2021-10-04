@@ -1,4 +1,5 @@
 package com.example.learn09082021v001
+
 import java.io.Serializable;
 
 class NameScoreOOP : Serializable {
@@ -21,5 +22,6 @@ class NameScoreOOP : Serializable {
     fun IOSScoreDEC() {
         if (ScoreInPutIOS >= 1) ScoreInPutIOS = ScoreInPutIOS - 1
     }
+
 }
 

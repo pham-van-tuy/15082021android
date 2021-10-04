@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Learn09082021V001">
         <activity
+            android:name=".fragmentLayout.ActivityFragment"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivityFragment"
+            android:exported="true" />
+        <activity
             android:name=".DataInput"
             android:exported="true" />
         <activity

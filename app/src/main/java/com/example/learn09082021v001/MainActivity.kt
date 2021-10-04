@@ -3,6 +3,8 @@ package com.example.learn09082021v001
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import com.example.learn09082021v001.fragmentLayout.ActivityFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_sub_bottom.view.*
 
@@ -10,21 +12,16 @@ const val DATA_TRANFER = "datatranfer"
 
 
 class MainActivity : AppCompatActivity() {
-    var scoreOOP = NameScoreOOP()
-    private val imgstudentlist = arrayListOf<Int>()
-    private val namestudentlist = arrayListOf<String>()
-    private val scorestudentlist = arrayListOf<String>()
-
-
+    var StudentOOP = NameScoreOOP()
     override fun onSaveInstanceState(savedInstanceState: Bundle) {
         super.onSaveInstanceState(savedInstanceState)
-        savedInstanceState.putSerializable(DATA_TRANFER, scoreOOP)
+        savedInstanceState.putSerializable(DATA_TRANFER, StudentOOP)
         checkDataFull()
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        scoreOOP = savedInstanceState.getSerializable(DATA_TRANFER) as NameScoreOOP
+        StudentOOP = savedInstanceState.getSerializable(DATA_TRANFER) as NameScoreOOP
         upDateDataMain()
         checkDataFull()
     }
@@ -32,18 +29,16 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (data != null && resultCode == RESULT_OK) {
-            scoreOOP = data.getSerializableExtra(DATA_TRANFER) as NameScoreOOP
+            StudentOOP = data.getSerializableExtra(DATA_TRANFER) as NameScoreOOP
             upDateDataMain()
             checkDataFull()
-            updatelistdata()
-            updateDataListView()
-
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        var a = findViewById<Button>(R.id.btnINC)
         // view config
         viewMainAndroid.goneButtonAction()
         viewMainIos.goneButtonAction()
@@ -54,22 +49,18 @@ class MainActivity : AppCompatActivity() {
             } else clearData()
             checkDataFull()
         }
-
-        lvdata.setOnItemClickListener { adapterView, view, i, l ->
-            imgstudentlist.removeAt(i)
-            namestudentlist.removeAt(i)
-            scorestudentlist.removeAt(i)
-            updateDataListView()
+        btnfragment.setOnClickListener {
+            val intent = Intent (this ,ActivityFragment ::class.java)
+            startActivity(intent)
         }
     }
-
+    // Funtion
     private fun upDateDataMain() {
-        viewMainAndroid.edtName.setText(scoreOOP.NameInputandroid)
-        viewMainAndroid.tvScore.text = scoreOOP.ScoreInPutandroid.toString()
-        viewMainIos.edtName.setText(scoreOOP.NameInPutIOS)
-        viewMainIos.tvScore.text = scoreOOP.ScoreInPutIOS.toString()
+        viewMainAndroid.edtName.setText(StudentOOP.NameInputandroid)
+        viewMainAndroid.tvScore.text = StudentOOP.ScoreInPutandroid.toString()
+        viewMainIos.edtName.setText(StudentOOP.NameInPutIOS)
+        viewMainIos.tvScore.text = StudentOOP.ScoreInPutIOS.toString()
     }
-// Funtion
 
     private fun checkDataFull() {
         if (viewMainAndroid.dataNotEmpty() || viewMainIos.dataNotEmpty()) {
@@ -82,22 +73,9 @@ class MainActivity : AppCompatActivity() {
         viewMainIos.clear()
     }
 
-    private fun updatelistdata() {
-        imgstudentlist.add(R.drawable.androiicon)
-        imgstudentlist.add(R.drawable.iosicon)
-        namestudentlist.add(scoreOOP.NameInputandroid)
-        namestudentlist.add(scoreOOP.NameInPutIOS)
-        scorestudentlist.add(scoreOOP.ScoreInPutandroid.toString())
-        scorestudentlist.add(scoreOOP.ScoreInPutIOS.toString())
     }
 
-    private fun updateDataListView() {
-        val listView = AdapterUpdateLV(
-            context = this, imgStudentArrayList = imgstudentlist, nameStudentArrayString = namestudentlist,
-            scoreStudentArrayString = scorestudentlist
-        )
-        lvdata.adapter = listView
-    }
 
-}
+
+
 

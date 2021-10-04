@@ -39,7 +39,8 @@
             android:inputType="textPersonName"
             android:textAlignment="center"
             android:textColor="#0000FF"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:autofillHints="FULL NAME" />
     </LinearLayout>
 
     <LinearLayout
