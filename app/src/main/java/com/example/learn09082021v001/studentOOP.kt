@@ -2,7 +2,7 @@ package com.example.learn09082021v001
 
 import java.io.Serializable;
 
-class NameScoreOOP : Serializable {
+class studentOOP : Serializable {
     var NameInputandroid: String = ""
     var ScoreInPutandroid: Int = 0
     var NameInPutIOS: String = ""
@@ -15,11 +15,11 @@ class NameScoreOOP : Serializable {
         if (ScoreInPutandroid >= 1) ScoreInPutandroid = ScoreInPutandroid - 1
     }
 
-    fun IOSScoreINC() {
+    fun IncScoreIOS() {
         if (ScoreInPutIOS <= 8) ScoreInPutIOS = ScoreInPutIOS + 1
     }
 
-    fun IOSScoreDEC() {
+    fun decScoreIOS() {
         if (ScoreInPutIOS >= 1) ScoreInPutIOS = ScoreInPutIOS - 1
     }
 

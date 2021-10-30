@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import com.example.learn09082021v001.R
-import com.example.learn09082021v001.ReadAndWriteMemori
+import com.example.learn09082021v001.ReadAndWriteMemory
 
 
 class FragmentListView : Fragment() {
-    private var updateMemoriData = ReadAndWriteMemori()
+    private var updateMemoriData = ReadAndWriteMemory()
     private val imgstudentlist = arrayListOf<Int>()
     private val namestudentlist = arrayListOf<String>()
     private val scorestudentlist = arrayListOf<String>()
@@ -22,7 +22,7 @@ class FragmentListView : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         var view = inflater.inflate(R.layout.fragment_listview, container, false)
-        updateMemoriData.ReadDataMemori(context, "phamvantuy.txt")
+        updateMemoriData.readDataMemory(context, "phamvantuy.txt")
         updatelistdata()
         val lvdata = view.findViewById<ListView>(R.id.lvdata)
         var listView = context?.let {
@@ -52,10 +52,10 @@ class FragmentListView : Fragment() {
     private fun updatelistdata() {
         imgstudentlist.add(R.drawable.androiicon)
         imgstudentlist.add(R.drawable.iosicon)
-        namestudentlist.add(updateMemoriData.dataMemoriLine1)
-        scorestudentlist.add(updateMemoriData.dataMemoriLine2)
-        namestudentlist.add(updateMemoriData.dataMemoriLine3)
-        scorestudentlist.add(updateMemoriData.dataMemoriLine4)
+        namestudentlist.add(updateMemoriData.dataMemoryLine1)
+        scorestudentlist.add(updateMemoriData.dataMemoryLine2)
+        namestudentlist.add(updateMemoriData.dataMemoryLine3)
+        scorestudentlist.add(updateMemoriData.dataMemoryLine4)
     }
 
 }

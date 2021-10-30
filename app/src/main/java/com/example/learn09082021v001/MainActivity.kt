@@ -12,16 +12,16 @@ const val DATA_TRANFER = "datatranfer"
 
 
 class MainActivity : AppCompatActivity() {
-    var StudentOOP = NameScoreOOP()
+    var studentOOP = studentOOP()
     override fun onSaveInstanceState(savedInstanceState: Bundle) {
         super.onSaveInstanceState(savedInstanceState)
-        savedInstanceState.putSerializable(DATA_TRANFER, StudentOOP)
+        savedInstanceState.putSerializable(DATA_TRANFER, studentOOP)
         checkDataFull()
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        StudentOOP = savedInstanceState.getSerializable(DATA_TRANFER) as NameScoreOOP
+        studentOOP = savedInstanceState.getSerializable(DATA_TRANFER) as studentOOP
         upDateDataMain()
         checkDataFull()
     }
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (data != null && resultCode == RESULT_OK) {
-            StudentOOP = data.getSerializableExtra(DATA_TRANFER) as NameScoreOOP
+            studentOOP = data.getSerializableExtra(DATA_TRANFER) as studentOOP
             upDateDataMain()
             checkDataFull()
         }
@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var a = findViewById<Button>(R.id.btnINC)
         // view config
         viewMainAndroid.goneButtonAction()
         viewMainIos.goneButtonAction()
@@ -56,10 +55,10 @@ class MainActivity : AppCompatActivity() {
     }
     // Funtion
     private fun upDateDataMain() {
-        viewMainAndroid.edtName.setText(StudentOOP.NameInputandroid)
-        viewMainAndroid.tvScore.text = StudentOOP.ScoreInPutandroid.toString()
-        viewMainIos.edtName.setText(StudentOOP.NameInPutIOS)
-        viewMainIos.tvScore.text = StudentOOP.ScoreInPutIOS.toString()
+        viewMainAndroid.edtName.setText(studentOOP.NameInputandroid)
+        viewMainAndroid.tvScore.text = studentOOP.ScoreInPutandroid.toString()
+        viewMainIos.edtName.setText(studentOOP.NameInPutIOS)
+        viewMainIos.tvScore.text = studentOOP.ScoreInPutIOS.toString()
     }
 
     private fun checkDataFull() {
