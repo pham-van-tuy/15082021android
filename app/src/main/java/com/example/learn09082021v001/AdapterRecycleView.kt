@@ -4,10 +4,11 @@ import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.learn09082021v001.fragmentLayout.FragmentRecycleView
 
 class AdapterUpdateRcv(
     var imgArrayArrayList: ArrayList<Int>, var nameArrayString: ArrayList<String>,
-    var scoreArrayString: ArrayList<String>, private val onclickRCV: OnclickRecycleView
+    var scoreArrayString: ArrayList<String>, val onclickRCV: FragmentRecycleView
 ) : RecyclerView.Adapter<AdapterUpdateRcv.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imgStudent: ImageView = view.findViewById(R.id.imgStudent)

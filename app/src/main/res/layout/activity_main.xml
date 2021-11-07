@@ -18,7 +18,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Fragment"/>
-
+        <Button
+            android:id="@+id/btnViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ViewPager"/>
+        <Button
+            android:id="@+id/btnViewPager2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ViewPager2"/>
 
         <TextView
             android:layout_width="match_parent"

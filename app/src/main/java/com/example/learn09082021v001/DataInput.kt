@@ -61,9 +61,12 @@ class DataInput : AppCompatActivity() {
         }
         btnDone.setOnClickListener {
             upDateStudentOOP()
-            updateMemoriData.writeDataMemory(this,"phamvantuy.txt",
-                studentOOP.NameInputandroid +"\n" + studentOOP.ScoreInPutandroid + "\n"
-                        + studentOOP.NameInPutIOS + "\n" + studentOOP.ScoreInPutIOS)
+            if (studentOOP.NameInputandroid.isNotEmpty()&& studentOOP.NameInPutIOS.isNotEmpty()
+            ){
+                updateMemoriData.writeDataMemory(this,"phamvantuy.txt",
+                    studentOOP.NameInputandroid +"\n" + studentOOP.ScoreInPutandroid + "\n"
+                            + studentOOP.NameInPutIOS + "\n" + studentOOP.ScoreInPutIOS)
+            }else Toast.makeText(this, "data is empty it will not save", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra(DATA_TRANFER, studentOOP)
             setResult(RESULT_OK, intent)

@@ -3,7 +3,8 @@ package com.example.learn09082021v001
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import com.example.learn09082021v001.ViewPager.ActivityPager
+import com.example.learn09082021v001.ViewPager.ActivityViewPager2Fragment
 import com.example.learn09082021v001.fragmentLayout.ActivityFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_sub_bottom.view.*
@@ -52,6 +53,15 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent (this ,ActivityFragment ::class.java)
             startActivity(intent)
         }
+        btnViewPager2.setOnClickListener {
+            val intent = Intent (this , ActivityViewPager2Fragment ::class.java)
+            startActivity(intent)
+        }
+        btnViewPager.setOnClickListener {
+            val intent = Intent (this , ActivityPager ::class.java)
+            startActivity(intent)
+        }
+
     }
     // Funtion
     private fun upDateDataMain() {
