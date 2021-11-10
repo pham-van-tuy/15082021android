@@ -2,8 +2,8 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/imgStudent"
         android:layout_width="80dp"
@@ -17,15 +17,21 @@
         android:layout_height="70dp">
         <TextView
             android:id="@+id/tvNameSudent"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="#0D239C"
             android:layout_width="250dp"
             android:layout_height="35dp"
             android:textAlignment="center"
+            android:hint="@string/name"
             />
         <TextView
             android:id="@+id/tvScoreSudent"
+            android:textSize="20dp"
             android:layout_width="250dp"
             android:layout_height="35dp"
             android:textAlignment="center"
+            android:hint="@string/score"
             />
     </LinearLayout>
     <ImageView
