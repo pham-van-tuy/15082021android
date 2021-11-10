@@ -6,16 +6,14 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_data_input.*
 import kotlinx.android.synthetic.main.view_sub_bottom.view.*
 
-private val imgstudentlist = arrayListOf<Int>()
-private val namestudentlist = arrayListOf<String>()
-private val scorestudentlist = arrayListOf<String>()
 
-class DataInput : AppCompatActivity(), AdapterUpdateRcv.OnclickRecycleView {
+
+class DataInput : AppCompatActivity() {
     var StudentOOP = NameScoreOOP()
+    private var updateMemoriData = ReadAndWriteMemori ()
     override fun onSaveInstanceState(savedInstanceState: Bundle) {
         super.onSaveInstanceState(savedInstanceState)
         updateScoreOOP()
@@ -44,7 +42,6 @@ class DataInput : AppCompatActivity(), AdapterUpdateRcv.OnclickRecycleView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_input)
-        updateDataRecycleView()
         // BTN SET ONCLICK LISTENNER
         viewDataInputAndroid.getIncBtn().setOnClickListener {
             StudentOOP.androiScoreINC()
@@ -64,10 +61,11 @@ class DataInput : AppCompatActivity(), AdapterUpdateRcv.OnclickRecycleView {
         }
         btnDone.setOnClickListener {
             updateScoreOOP()
+            updateMemoriData.WriteDataMemory(this,"phamvantuy.txt",
+                StudentOOP.NameInputandroid +"\n" + StudentOOP.ScoreInPutandroid + "\n"
+                        + StudentOOP.NameInPutIOS + "\n" + StudentOOP.ScoreInPutIOS)
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra(DATA_TRANFER, StudentOOP)
-            updaterecycleView()
-            updateDataRecycleView()
             setResult(RESULT_OK, intent)
             this.finish()
         }
@@ -86,45 +84,10 @@ class DataInput : AppCompatActivity(), AdapterUpdateRcv.OnclickRecycleView {
         viewDataInputIos.edtName.setText(StudentOOP.NameInPutIOS)
     }
 
-    private fun updaterecycleView() {
-        imgstudentlist.add(R.drawable.androiicon)
-        imgstudentlist.add(R.drawable.iosicon)
-        namestudentlist.add(StudentOOP.NameInputandroid)
-        namestudentlist.add(StudentOOP.NameInPutIOS)
-        scorestudentlist.add(StudentOOP.ScoreInPutandroid.toString())
-        scorestudentlist.add(StudentOOP.ScoreInPutIOS.toString())
-    }
 
-    private fun updateDataRecycleView() {
-        rcvlistdata.layoutManager = LinearLayoutManager(this)
-        rcvlistdata.setHasFixedSize(true)
-        rcvlistdata.adapter = AdapterUpdateRcv(
-            imgArrayArrayList = imgstudentlist,
-            nameArrayString = namestudentlist, scoreArrayString = scorestudentlist, onclickRCV = this
-        )
-    }
 
-    override fun onClickImgRCV(imgArray: ArrayList<Int>, position: Int) {
-        Toast.makeText(this, "img on " + position, Toast.LENGTH_SHORT).show()
-    }
 
-    override fun onClickNameRCV(nameArray: ArrayList<String>, position: Int) {
-        Toast.makeText(this, "name on " + position, Toast.LENGTH_SHORT).show()
 
-        when (position) {
-            1 -> Toast.makeText(this, "position = 1", Toast.LENGTH_SHORT).show()
-            2 -> Toast.makeText(this, "position = 2", Toast.LENGTH_SHORT).show()
-        }
-
-    }
-
-    override fun onClickScoreRCV(scoreArray: ArrayList<String>, position: Int) {
-        Toast.makeText(this, "score on " + position, Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onClickOptionRCV(position: Int) {
-        Toast.makeText(this, "OPTION ON  " + position, Toast.LENGTH_SHORT).show()
-    }
 }
 
 

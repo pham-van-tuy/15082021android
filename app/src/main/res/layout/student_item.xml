@@ -3,41 +3,43 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    >
     <ImageView
         android:id="@+id/imgStudent"
         android:layout_width="80dp"
         android:layout_height="70dp"
         android:src="@mipmap/ic_launcher"
-        android:background="@color/black"
-        />
+        android:background="@color/black" />
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="250dp"
+        android:layout_width="280dp"
         android:layout_height="70dp">
         <TextView
             android:id="@+id/tvNameSudent"
             android:textSize="25dp"
             android:textStyle="bold"
             android:textColor="#0D239C"
-            android:layout_width="250dp"
+            android:layout_width="280dp"
             android:layout_height="35dp"
             android:textAlignment="center"
             android:hint="@string/name"
             />
         <TextView
-            android:id="@+id/tvScoreSudent"
+            android:id="@+id/tvScoreStudent"
             android:textSize="20dp"
-            android:layout_width="250dp"
+            android:layout_width="280dp"
             android:layout_height="35dp"
             android:textAlignment="center"
             android:hint="@string/score"
             />
     </LinearLayout>
+
     <ImageView
         android:id="@+id/imgOption"
-        android:layout_width="80dp"
+        android:layout_width="50dp"
         android:layout_height="70dp"
-        android:src="@drawable/option"
-    />
+        android:background="#FFFFFF"
+        android:src="@drawable/option" />
 </LinearLayout>

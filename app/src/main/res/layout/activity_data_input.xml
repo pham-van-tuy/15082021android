@@ -52,14 +52,7 @@
             android:text="@string/done"
             android:textAlignment="center"
             android:textSize="20sp" />
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/rcvlistdata"
-            android:divider="#b22222"
-            android:dividerHeight="10dp"
-            android:background="@color/teal_200"
-            />
+
     </LinearLayout>
 
 

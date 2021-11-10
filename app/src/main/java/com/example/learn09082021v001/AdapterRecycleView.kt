@@ -12,7 +12,7 @@ class AdapterUpdateRcv(
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imgStudent: ImageView = view.findViewById(R.id.imgStudent)
         val nameStudent: TextView = view.findViewById(R.id.tvNameSudent)
-        val scoreStudent: TextView = view.findViewById(R.id.tvScoreSudent)
+        val scoreStudent: TextView = view.findViewById(R.id.tvScoreStudent)
         val optionImgRcv: ImageView = view.findViewById(R.id.imgOption)
 
     }
