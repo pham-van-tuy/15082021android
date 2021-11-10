@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <ImageView
+        android:id="@+id/imgStudent"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:src="@mipmap/ic_launcher"
+        android:background="@color/black"
+        />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="250dp"
+        android:layout_height="70dp">
+        <TextView
+            android:id="@+id/tvNameSudent"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:textAlignment="center"
+            />
+        <TextView
+            android:id="@+id/tvScoreSudent"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/imgOption"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:src="@drawable/option"
+    />
+</LinearLayout>

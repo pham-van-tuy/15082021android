@@ -6,12 +6,14 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_sub_bottom.view.*
 
-
 const val DATA_TRANFER = "datatranfer"
 
 
 class MainActivity : AppCompatActivity() {
     var scoreOOP = NameScoreOOP()
+    val imgstudentlist = arrayListOf<Int>()
+    val namestudentlist = arrayListOf<String>()
+    val scorestudentlist = arrayListOf<String>()
 
 
     override fun onSaveInstanceState(savedInstanceState: Bundle) {
@@ -33,6 +35,9 @@ class MainActivity : AppCompatActivity() {
             scoreOOP = data.getSerializableExtra(DATA_TRANFER) as NameScoreOOP
             upDateDataMain()
             checkDataFull()
+            updatelistdata()
+            updateDataListView()
+
         }
     }
 
@@ -48,6 +53,15 @@ class MainActivity : AppCompatActivity() {
                 startActivityForResult(intent, 1)
             } else clearData()
             checkDataFull()
+        }
+
+        lvdata.setOnItemClickListener { adapterView, view, i, l ->
+            imgstudentlist.removeAt(i)
+            namestudentlist.removeAt(i)
+            scorestudentlist.removeAt(i)
+            updateDataListView()
+
+
         }
     }
 
@@ -68,6 +82,23 @@ class MainActivity : AppCompatActivity() {
     private fun clearData() {
         viewMainAndroid.clear()
         viewMainIos.clear()
+    }
+
+    private fun updatelistdata() {
+        imgstudentlist.add(R.drawable.androiicon)
+        imgstudentlist.add(R.drawable.iosicon)
+        namestudentlist.add(scoreOOP.NameInputandroid)
+        namestudentlist.add(scoreOOP.NameInPutIOS)
+        scorestudentlist.add(scoreOOP.ScoreInPutandroid.toString())
+        scorestudentlist.add(scoreOOP.ScoreInPutIOS.toString())
+    }
+
+    private fun updateDataListView() {
+        val listView = lvUpDateData(
+            context = this, imgstudent = imgstudentlist, namestudent = namestudentlist,
+            scorestudent = scorestudentlist
+        )
+        lvdata.adapter = listView
     }
 }
 

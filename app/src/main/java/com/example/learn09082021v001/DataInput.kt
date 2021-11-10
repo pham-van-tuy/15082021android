@@ -1,6 +1,5 @@
 package com.example.learn09082021v001
 
-
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
