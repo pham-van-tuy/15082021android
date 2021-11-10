@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.learn09082021v001.AdapterUpdateRcv
 import com.example.learn09082021v001.R
-import com.example.learn09082021v001.ReadAndWriteMemori
+import com.example.learn09082021v001.ReadAndWriteMemory
 
 class FragmentRecycleView() : Fragment(), AdapterUpdateRcv.OnclickRecycleView {
-    private var updateMemoriData = ReadAndWriteMemori()
+    private var updateMemoriData = ReadAndWriteMemory()
     private val imgstudentlist = arrayListOf<Int>()
     private val namestudentlist = arrayListOf<String>()
     private val scorestudentlist = arrayListOf<String>()
@@ -23,24 +23,24 @@ class FragmentRecycleView() : Fragment(), AdapterUpdateRcv.OnclickRecycleView {
         savedInstanceState: Bundle?,
     ): View? {
         val view = inflater.inflate(R.layout.fragment_recycleview, container, false)
-        updateMemoriData.ReadDataMemori(context, "phamvantuy.txt")
-        UpDateDataRecycleView()
-        UpDateRecycleView(view)
+        updateMemoriData.readDataMemory(context, "phamvantuy.txt")
+        upDateDataRecycleView()
+        upDateRecycleView(view)
         return view
     }
 
-    fun UpDateDataRecycleView() {
-        if (updateMemoriData.dataMemoriLine1.isNotEmpty()) {
+    fun upDateDataRecycleView() {
+        if (updateMemoriData.dataMemoryLine1.isNotEmpty()) {
             imgstudentlist.add(R.drawable.androiicon)
             imgstudentlist.add(R.drawable.iosicon)
-            namestudentlist.add(updateMemoriData.dataMemoriLine1)
-            scorestudentlist.add(updateMemoriData.dataMemoriLine2)
-            namestudentlist.add(updateMemoriData.dataMemoriLine3)
-            scorestudentlist.add(updateMemoriData.dataMemoriLine4)
+            namestudentlist.add(updateMemoriData.dataMemoryLine1)
+            scorestudentlist.add(updateMemoriData.dataMemoryLine2)
+            namestudentlist.add(updateMemoriData.dataMemoryLine3)
+            scorestudentlist.add(updateMemoriData.dataMemoryLine4)
         }
     }
 
-    fun UpDateRecycleView(view: View) {
+    fun upDateRecycleView(view: View) {
         val rcvlistdata = view.findViewById<RecyclerView>(R.id.rcvlistdata)
         rcvlistdata.layoutManager = LinearLayoutManager(context)
         rcvlistdata.setHasFixedSize(true)
@@ -57,7 +57,7 @@ class FragmentRecycleView() : Fragment(), AdapterUpdateRcv.OnclickRecycleView {
         imgstudentlist.removeAt(position)
         namestudentlist.removeAt(position)
         scorestudentlist.removeAt(position)
-        view?.let { UpDateRecycleView(it) }
+        view?.let { upDateRecycleView(it) }
     }
 
     override fun onClickNameRCV(nameArray: ArrayList<String>, position: Int) {

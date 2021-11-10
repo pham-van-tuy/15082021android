@@ -12,17 +12,17 @@ import kotlinx.android.synthetic.main.view_sub_bottom.view.*
 
 
 class DataInput : AppCompatActivity() {
-    var StudentOOP = NameScoreOOP()
-    private var updateMemoriData = ReadAndWriteMemori ()
+    var studentOOP = studentOOP()
+    private var updateMemoriData = ReadAndWriteMemory ()
     override fun onSaveInstanceState(savedInstanceState: Bundle) {
         super.onSaveInstanceState(savedInstanceState)
-        updateScoreOOP()
-        savedInstanceState.putSerializable(DATA_TRANFER, StudentOOP)
+        upDateStudentOOP()
+        savedInstanceState.putSerializable(DATA_TRANFER, studentOOP)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        StudentOOP = savedInstanceState.getSerializable(DATA_TRANFER) as NameScoreOOP
+        studentOOP = savedInstanceState.getSerializable(DATA_TRANFER) as studentOOP
         upDateDataInput()
     }
 
@@ -44,44 +44,44 @@ class DataInput : AppCompatActivity() {
         setContentView(R.layout.activity_data_input)
         // BTN SET ONCLICK LISTENNER
         viewDataInputAndroid.getIncBtn().setOnClickListener {
-            StudentOOP.androiScoreINC()
-            viewDataInputAndroid.tvScore.text = StudentOOP.ScoreInPutandroid.toString()
+            studentOOP.androiScoreINC()
+            viewDataInputAndroid.tvScore.text = studentOOP.ScoreInPutandroid.toString()
         }
         viewDataInputAndroid.getDecBtn().setOnClickListener {
-            StudentOOP.androiScoreDEC()
-            viewDataInputAndroid.tvScore.text = StudentOOP.ScoreInPutandroid.toString()
+            studentOOP.androiScoreDEC()
+            viewDataInputAndroid.tvScore.text = studentOOP.ScoreInPutandroid.toString()
         }
         viewDataInputIos.getIncBtn().setOnClickListener {
-            StudentOOP.IOSScoreINC()
-            viewDataInputIos.tvScore.text = StudentOOP.ScoreInPutIOS.toString()
+            studentOOP.IncScoreIOS()
+            viewDataInputIos.tvScore.text = studentOOP.ScoreInPutIOS.toString()
         }
         viewDataInputIos.getDecBtn().setOnClickListener {
-            StudentOOP.IOSScoreDEC()
-            viewDataInputIos.tvScore.text = StudentOOP.ScoreInPutIOS.toString()
+            studentOOP.decScoreIOS()
+            viewDataInputIos.tvScore.text = studentOOP.ScoreInPutIOS.toString()
         }
         btnDone.setOnClickListener {
-            updateScoreOOP()
-            updateMemoriData.WriteDataMemory(this,"phamvantuy.txt",
-                StudentOOP.NameInputandroid +"\n" + StudentOOP.ScoreInPutandroid + "\n"
-                        + StudentOOP.NameInPutIOS + "\n" + StudentOOP.ScoreInPutIOS)
+            upDateStudentOOP()
+            updateMemoriData.writeDataMemory(this,"phamvantuy.txt",
+                studentOOP.NameInputandroid +"\n" + studentOOP.ScoreInPutandroid + "\n"
+                        + studentOOP.NameInPutIOS + "\n" + studentOOP.ScoreInPutIOS)
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra(DATA_TRANFER, StudentOOP)
+            intent.putExtra(DATA_TRANFER, studentOOP)
             setResult(RESULT_OK, intent)
             this.finish()
         }
     }
 
     // Funtion
-    fun updateScoreOOP() {
-        StudentOOP.NameInputandroid = viewDataInputAndroid.edtName.text.toString()
-        StudentOOP.NameInPutIOS = viewDataInputIos.edtName.text.toString()
+    fun upDateStudentOOP() {
+        studentOOP.NameInputandroid = viewDataInputAndroid.edtName.text.toString()
+        studentOOP.NameInPutIOS = viewDataInputIos.edtName.text.toString()
     }
 
     fun upDateDataInput() {
-        viewDataInputAndroid.tvScore.text = StudentOOP.ScoreInPutandroid.toString()
-        viewDataInputIos.tvScore.text = StudentOOP.ScoreInPutIOS.toString()
-        viewDataInputAndroid.edtName.setText(StudentOOP.NameInputandroid)
-        viewDataInputIos.edtName.setText(StudentOOP.NameInPutIOS)
+        viewDataInputAndroid.tvScore.text = studentOOP.ScoreInPutandroid.toString()
+        viewDataInputIos.tvScore.text = studentOOP.ScoreInPutIOS.toString()
+        viewDataInputAndroid.edtName.setText(studentOOP.NameInputandroid)
+        viewDataInputIos.edtName.setText(studentOOP.NameInPutIOS)
     }
 
 
