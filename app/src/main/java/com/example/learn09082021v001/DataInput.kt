@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.example.learn09082021v001.*
 import kotlinx.android.synthetic.main.activity_data_input.*
 import kotlinx.android.synthetic.main.view_sub_bottom.view.*
 

@@ -21,11 +21,11 @@ class FragmentListView : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        var view = inflater.inflate(R.layout.fragment_listview, container, false)
+        val view = inflater.inflate(R.layout.fragment_listview, container, false)
         updateMemoriData.readDataMemory(context, "phamvantuy.txt")
         updatelistdata()
         val lvdata = view.findViewById<ListView>(R.id.lvdata)
-        var listView = context?.let {
+        val listView = context?.let {
             AdapterListView(context = it,
                 imgstudent = imgstudentlist,
                 namestudent = namestudentlist,

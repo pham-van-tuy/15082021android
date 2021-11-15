@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,12 +12,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.learn09082021v001.AdapterUpdateRcv
 import com.example.learn09082021v001.R
 import com.example.learn09082021v001.ReadAndWriteMemory
+import kotlinx.android.synthetic.main.fragment_recycleview.*
 
 class FragmentRecycleView : Fragment(), AdapterUpdateRcv.OnclickRecycleView {
     private var updateMemoriData = ReadAndWriteMemory()
     private val imgstudentlist = arrayListOf<Int>()
     private val namestudentlist = arrayListOf<String>()
     private val scorestudentlist = arrayListOf<String>()
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,7 +28,8 @@ class FragmentRecycleView : Fragment(), AdapterUpdateRcv.OnclickRecycleView {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_recycleview, container, false)
         updateMemoriData.readDataMemory(context, "phamvantuy.txt")
-        upDateDataRecycleView()
+
+            upDateDataRecycleView()
         upDateRecycleView(view)
         return view
     }
@@ -41,7 +46,8 @@ class FragmentRecycleView : Fragment(), AdapterUpdateRcv.OnclickRecycleView {
     }
 
     fun upDateRecycleView(view: View) {
-        val rcvlistdata = view.findViewById<RecyclerView>(R.id.rcvlistdata)
+        // if it done have fine view by id it will crash
+        val rcvlistdata: RecyclerView = view.findViewById(R.id.rcvlistdata)
         rcvlistdata.layoutManager = LinearLayoutManager(context)
         rcvlistdata.setHasFixedSize(true)
         rcvlistdata.adapter = AdapterUpdateRcv(

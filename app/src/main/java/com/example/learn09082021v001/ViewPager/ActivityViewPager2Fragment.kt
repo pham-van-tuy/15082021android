@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import com.example.learn09082021v001.R
 import com.example.learn09082021v001.ViewPage.ViewPagerZoom
+import kotlinx.android.synthetic.main.activity_view_pager2_rcv.*
 
 
 class ActivityViewPager2Fragment : AppCompatActivity(), AdapterViewPager2RCV.viewPager2Onclick {
@@ -47,7 +48,7 @@ class ActivityViewPager2Fragment : AppCompatActivity(), AdapterViewPager2RCV.vie
                 )
             ), this
         )
-        val viewPager2RCV = findViewById<ViewPager2>(R.id.viewPager2RCV)
+    //    val viewPager2RCV = findViewById<ViewPager2>(R.id.viewPager2RCV)
         viewPager2RCV.adapter = adapterViewPager2RCV
         viewPager2RCV.setPageTransformer(ViewPagerZoom())
 //        val fragments :ArrayList<Fragment> = arrayListOf(
