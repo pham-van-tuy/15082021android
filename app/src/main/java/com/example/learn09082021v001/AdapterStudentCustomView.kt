@@ -46,3 +46,4 @@ class studenViewCustom(context: Context, attrs: AttributeSet) :
         return edtName.text.isNotEmpty() || tvScore.text.isNotEmpty()
     }
 }
+

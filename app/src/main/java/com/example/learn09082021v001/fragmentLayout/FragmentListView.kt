@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import com.example.learn09082021v001.R
 import com.example.learn09082021v001.ReadAndWriteMemory
 
-
 class FragmentListView : Fragment() {
     private var updateMemoriData = ReadAndWriteMemory()
     private val imgstudentlist = arrayListOf<Int>()
@@ -59,4 +58,3 @@ class FragmentListView : Fragment() {
     }
 
 }
-

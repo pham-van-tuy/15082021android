@@ -77,5 +77,3 @@ class FragmentRecycleView : Fragment(), AdapterUpdateRcv.OnclickRecycleView {
         Toast.makeText(context, "OPTION CLICK" + position, Toast.LENGTH_SHORT).show()
     }
 }
-
-

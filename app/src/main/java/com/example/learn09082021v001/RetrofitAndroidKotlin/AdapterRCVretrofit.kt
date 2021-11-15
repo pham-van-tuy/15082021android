@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.learn09082021v001.R
 import com.squareup.picasso.Picasso
 import java.util.ArrayList
+
 class AdapterRCVretrofit(var myDataRCVView: ArrayList<DataForm>) :
     RecyclerView.Adapter<AdapterRCVretrofit.retrofitViewhoder>() {
     inner class retrofitViewhoder(view: View) : RecyclerView.ViewHolder(view) {
@@ -24,11 +25,13 @@ class AdapterRCVretrofit(var myDataRCVView: ArrayList<DataForm>) :
             tvEmailRetrofit.text = dataForm.email
         }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): retrofitViewhoder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.retrofit_itemview, parent, false)
         return retrofitViewhoder(view)
     }
+
     override fun onBindViewHolder(holder: retrofitViewhoder, position: Int) {
         holder.bind(myDataRCVView[position])
         // load IMG from url

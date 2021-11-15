@@ -43,7 +43,6 @@ class AdapterViewPager2RCV(
         holder.tvDestcription.setOnClickListener {
             onClickViewPager2.onClickDesViewPager2(position)
         }
-
     }
 
     override fun getItemCount(): Int {
@@ -55,6 +54,4 @@ class AdapterViewPager2RCV(
         fun onClickTitleViewPager2(position: Int)
         fun onClickDesViewPager2(position: Int)
     }
-
-
 }

@@ -31,6 +31,3 @@ data class dataUpdateRetrofit(
     @SerializedName("createdAt")
     var createdAtSecurity: String? = null
 }
-
-
-

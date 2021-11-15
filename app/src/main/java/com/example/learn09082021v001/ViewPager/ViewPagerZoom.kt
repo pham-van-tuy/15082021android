@@ -5,7 +5,8 @@ import androidx.viewpager2.widget.ViewPager2
 
 private const val MIN_SCALE = 0.85f
 private const val MIN_ALPHA = 0.5f
-class ViewPagerZoom () :ViewPager2.PageTransformer {
+
+class ViewPagerZoom() : ViewPager2.PageTransformer {
     override fun transformPage(page: View, position: Float) {
         page.apply {
             val pageWidth = width
@@ -40,5 +41,5 @@ class ViewPagerZoom () :ViewPager2.PageTransformer {
                 }
             }
         }
-
-    }}
+    }
+}

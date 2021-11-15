@@ -12,7 +12,6 @@ import kotlinx.android.synthetic.main.view_sub_bottom.view.*
 
 const val DATA_TRANFER = "datatranfer"
 
-
 class MainActivity : AppCompatActivity() {
     var studentOOP = studentOOP()
     override fun onSaveInstanceState(savedInstanceState: Bundle) {
@@ -66,7 +65,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent (this , RetrofitMainActivity ::class.java)
             startActivity(intent)
         }
-
     }
     // Funtion
     private fun upDateDataMain() {
@@ -86,7 +84,6 @@ class MainActivity : AppCompatActivity() {
         viewMainAndroid.clear()
         viewMainIos.clear()
     }
-
     }
 
 
