@@ -12,7 +12,7 @@ import com.example.learn09082021v001.AdapterUpdateRcv
 import com.example.learn09082021v001.R
 import com.example.learn09082021v001.ReadAndWriteMemory
 
-class FragmentRecycleView() : Fragment(), AdapterUpdateRcv.OnclickRecycleView {
+class FragmentRecycleView : Fragment(), AdapterUpdateRcv.OnclickRecycleView {
     private var updateMemoriData = ReadAndWriteMemory()
     private val imgstudentlist = arrayListOf<Int>()
     private val namestudentlist = arrayListOf<String>()
@@ -47,8 +47,7 @@ class FragmentRecycleView() : Fragment(), AdapterUpdateRcv.OnclickRecycleView {
         rcvlistdata.adapter = AdapterUpdateRcv(
             imgArrayArrayList = imgstudentlist,
             nameArrayString = namestudentlist,
-            scoreArrayString = scorestudentlist,
-            onclickRCV = this
+            scoreArrayString = scorestudentlist, this
         )
     }
 
