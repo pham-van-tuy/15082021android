@@ -9,8 +9,6 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_data_input.*
 import kotlinx.android.synthetic.main.view_sub_bottom.view.*
 
-
-
 class DataInput : AppCompatActivity() {
     var studentOOP = studentOOP()
     private var updateMemoriData = ReadAndWriteMemory ()
@@ -37,7 +35,6 @@ class DataInput : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,16 +83,4 @@ class DataInput : AppCompatActivity() {
         viewDataInputAndroid.edtName.setText(studentOOP.NameInputandroid)
         viewDataInputIos.edtName.setText(studentOOP.NameInPutIOS)
     }
-
-
-
-
-
 }
-
-
-
-
-
-
-

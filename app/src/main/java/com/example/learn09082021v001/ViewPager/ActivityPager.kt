@@ -1,6 +1,5 @@
 package com.example.learn09082021v001.ViewPager
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +12,7 @@ import androidx.viewpager.widget.ViewPager
 import com.example.learn09082021v001.R
 
 private val NUM_PAGES = 5
+
 class ActivityPager : FragmentActivity() {
     private lateinit var mPager: ViewPager
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +24,7 @@ class ActivityPager : FragmentActivity() {
         mPager.adapter = pagerAdapter
 
     }
+
     override fun onBackPressed() {
         if (mPager.currentItem == 0) {
             // If the user is currently looking at the first step, allow the system to handle the
@@ -40,6 +41,7 @@ class ActivityPager : FragmentActivity() {
 
         override fun getItem(position: Int): Fragment = ScreenSlidePageFragment()
     }
+
     class ScreenSlidePageFragment : Fragment() {
 
         override fun onCreateView(

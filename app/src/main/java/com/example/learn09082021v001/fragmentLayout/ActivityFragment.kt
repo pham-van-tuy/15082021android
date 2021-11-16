@@ -8,7 +8,6 @@ import com.example.learn09082021v001.MainActivity
 import com.example.learn09082021v001.R
 import kotlinx.android.synthetic.main.activity_framemt_layout.*
 
-
 class ActivityFragment : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

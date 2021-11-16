@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import com.example.learn09082021v001.R
 import com.example.learn09082021v001.ReadAndWriteMemory
 
-
 class FragmentListView : Fragment() {
     private var updateMemoriData = ReadAndWriteMemory()
     private val imgstudentlist = arrayListOf<Int>()
@@ -21,11 +20,11 @@ class FragmentListView : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        var view = inflater.inflate(R.layout.fragment_listview, container, false)
+        val view = inflater.inflate(R.layout.fragment_listview, container, false)
         updateMemoriData.readDataMemory(context, "phamvantuy.txt")
         updatelistdata()
         val lvdata = view.findViewById<ListView>(R.id.lvdata)
-        var listView = context?.let {
+        val listView = context?.let {
             AdapterListView(context = it,
                 imgstudent = imgstudentlist,
                 namestudent = namestudentlist,
@@ -59,4 +58,3 @@ class FragmentListView : Fragment() {
     }
 
 }
-

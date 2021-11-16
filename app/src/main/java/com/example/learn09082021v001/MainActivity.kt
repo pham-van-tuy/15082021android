@@ -3,6 +3,7 @@ package com.example.learn09082021v001
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.learn09082021v001.NetworkComunicationRetrofit.RetrofitMainActivity
 import com.example.learn09082021v001.ViewPager.ActivityPager
 import com.example.learn09082021v001.ViewPager.ActivityViewPager2Fragment
 import com.example.learn09082021v001.fragmentLayout.ActivityFragment
@@ -10,7 +11,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_sub_bottom.view.*
 
 const val DATA_TRANFER = "datatranfer"
-
 
 class MainActivity : AppCompatActivity() {
     var studentOOP = studentOOP()
@@ -61,7 +61,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent (this , ActivityPager ::class.java)
             startActivity(intent)
         }
-
+        btnRetrofit.setOnClickListener {
+            val intent = Intent (this , RetrofitMainActivity ::class.java)
+            startActivity(intent)
+        }
     }
     // Funtion
     private fun upDateDataMain() {
@@ -81,10 +84,4 @@ class MainActivity : AppCompatActivity() {
         viewMainAndroid.clear()
         viewMainIos.clear()
     }
-
     }
-
-
-
-
-

@@ -65,8 +65,5 @@ class ReadAndWriteMemory {
         }
         Toast.makeText(context, dataMemoryLine1 + " " + dataMemoryLine2 + " "
                 + dataMemoryLine3 + " " + dataMemoryLine4, Toast.LENGTH_SHORT).show()
-
     }
-
-
 }

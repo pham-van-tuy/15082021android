@@ -1,13 +1,11 @@
 package com.example.learn09082021v001.ViewPager
 
-import android.icu.text.Transliterator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.viewpager2.widget.ViewPager2
 import com.example.learn09082021v001.R
 import com.example.learn09082021v001.ViewPage.ViewPagerZoom
-
+import kotlinx.android.synthetic.main.activity_view_pager2_rcv.*
 
 class ActivityViewPager2Fragment : AppCompatActivity(), AdapterViewPager2RCV.viewPager2Onclick {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +45,7 @@ class ActivityViewPager2Fragment : AppCompatActivity(), AdapterViewPager2RCV.vie
                 )
             ), this
         )
-        val viewPager2RCV = findViewById<ViewPager2>(R.id.viewPager2RCV)
+        //    val viewPager2RCV = findViewById<ViewPager2>(R.id.viewPager2RCV)
         viewPager2RCV.adapter = adapterViewPager2RCV
         viewPager2RCV.setPageTransformer(ViewPagerZoom())
 //        val fragments :ArrayList<Fragment> = arrayListOf(
@@ -69,8 +67,6 @@ class ActivityViewPager2Fragment : AppCompatActivity(), AdapterViewPager2RCV.vie
         Toast.makeText(this, "Destcription VIEWPAGER2 onclick + $position", Toast.LENGTH_SHORT)
             .show()
     }
-
-
 }
 
 

@@ -53,5 +53,3 @@ class AdapterUpdateRcv(
         fun onClickOptionRCV(position: Int)
     }
 }
-
-

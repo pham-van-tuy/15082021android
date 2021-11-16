@@ -1,6 +1,5 @@
 package com.example.learn09082021v001.fragmentLayout
 
-
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
