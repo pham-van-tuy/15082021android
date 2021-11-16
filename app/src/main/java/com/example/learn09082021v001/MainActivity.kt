@@ -85,8 +85,3 @@ class MainActivity : AppCompatActivity() {
         viewMainIos.clear()
     }
     }
-
-
-
-
-
