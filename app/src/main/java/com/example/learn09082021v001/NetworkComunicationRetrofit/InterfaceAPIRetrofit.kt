@@ -1,4 +1,4 @@
-package com.example.learn09082021v001.RetrofitAndroidKotlin
+package com.example.learn09082021v001.NetworkComunicationRetrofit
 
 import retrofit2.Call
 import retrofit2.http.*
@@ -19,4 +19,5 @@ interface InterfaceAPIRetrofit {
     @POST("/api/users")
     fun upDateToRetrofit(@Body user: dataUpdateRetrofit?): Call<dataUpdateRetrofit?>?
 }
+
 

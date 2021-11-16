@@ -84,10 +84,3 @@ class DataInput : AppCompatActivity() {
         viewDataInputIos.edtName.setText(studentOOP.NameInPutIOS)
     }
 }
-
-
-
-
-
-
-

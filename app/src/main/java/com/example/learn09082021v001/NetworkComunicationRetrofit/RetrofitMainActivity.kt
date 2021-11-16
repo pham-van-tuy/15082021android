@@ -1,4 +1,4 @@
-package com.example.learn09082021v001.RetrofitAndroidKotlin
+package com.example.learn09082021v001.NetworkComunicationRetrofit
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

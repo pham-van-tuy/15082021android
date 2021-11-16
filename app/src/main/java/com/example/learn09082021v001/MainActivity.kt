@@ -3,7 +3,7 @@ package com.example.learn09082021v001
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.learn09082021v001.RetrofitAndroidKotlin.RetrofitMainActivity
+import com.example.learn09082021v001.NetworkComunicationRetrofit.RetrofitMainActivity
 import com.example.learn09082021v001.ViewPager.ActivityPager
 import com.example.learn09082021v001.ViewPager.ActivityViewPager2Fragment
 import com.example.learn09082021v001.fragmentLayout.ActivityFragment

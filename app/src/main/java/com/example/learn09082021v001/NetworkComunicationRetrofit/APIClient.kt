@@ -1,4 +1,4 @@
-package com.example.learn09082021v001.RetrofitAndroidKotlin
+package com.example.learn09082021v001.NetworkComunicationRetrofit
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

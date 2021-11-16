@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Learn09082021V001">
         <activity
-            android:name=".RetrofitAndroidKotlin.UpdateDataToRetrofit"
+            android:name=".NetworkComunicationRetrofit.UpdateDataToRetrofit"
             android:exported="false" />
         <activity
-            android:name=".RetrofitAndroidKotlin.RetrofitMainActivity"
+            android:name=".NetworkComunicationRetrofit.RetrofitMainActivity"
             android:exported="false" />
         <activity
             android:name=".ViewPager.ActivityPager"

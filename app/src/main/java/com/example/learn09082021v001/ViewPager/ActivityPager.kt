@@ -1,6 +1,5 @@
 package com.example.learn09082021v001.ViewPager
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

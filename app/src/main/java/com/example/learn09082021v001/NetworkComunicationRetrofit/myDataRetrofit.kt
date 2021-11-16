@@ -1,4 +1,4 @@
-package com.example.learn09082021v001.RetrofitAndroidKotlin
+package com.example.learn09082021v001.NetworkComunicationRetrofit
 
 import com.google.gson.annotations.SerializedName
 
